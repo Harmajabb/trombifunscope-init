@@ -1,0 +1,11 @@
+# Le fichier de configuration porte le mot de passe du rôle applicatif :
+# il ne part jamais dans le dépôt. Sa copie d'exemple, elle, est versionnée.
+config.properties
+
+# Classes compilées
+out/
+*.class
+
+# Fichiers de projet des IDE : ils sont propres à un poste, pas au projet.
+.idea/
+*.iml
