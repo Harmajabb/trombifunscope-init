@@ -20,7 +20,7 @@ de données que vous aurez créée.
 
 **1. Forkez ce dépôt**, une fois pour le groupe. Chacun clone ensuite le fork du groupe.
 
-**2. Montez la base.** Écrivez vos scripts dans `sql/`, puis jouez-les.
+**2. Montez la base.** Écrivez vos scripts dans `sql/`, conformement au brief.
 
 **3. Renseignez votre connexion.** Copiez le fichier d'exemple et mettez-y le mot de passe de
 votre rôle applicatif.

@@ -15,6 +15,11 @@ que tout s'est bien passé. Exemple :
 ```sh
 psql -U postgres -v ON_ERROR_STOP=1 -f votre-script.sql
 ```
+pour le premier script, puis une fois la base crée : 
+```sh
+psql -U postgres -d trombifunscope -v ON_ERROR_STOP=1 -f votre-script.sql
+```
 
-Une seule contrainte de nommage : **la table s'appelle `student`**. Le code fourni compte les
-fiches avec un `SELECT count(*) FROM student` — sous un autre nom, il ne trouvera rien.
+
+**La table s'appelle `student`**. Le code fourni compte les
+fiches avec un `SELECT count(*) FROM student`. Si vous avez appelé votre table différemment, à vous de faire le nécessaire.
