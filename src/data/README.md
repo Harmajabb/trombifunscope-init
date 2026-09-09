@@ -4,8 +4,8 @@ Ce dossier porte tout le SQL du projet. Une seule opération y est écrite, `cou
 quatre autres sont à vous. Ce document explique l'outil que vous allez utiliser pour les
 écrire.
 
-> **Les exemples ci-dessous portent volontairement sur une autre table que la vôtre**, une
-> table `city`. Ils sont donnés à titre d'illustration : à vous de les transposer.
+> **Les exemples ci-dessous portent volontairement sur une autre table que la vôtre**. 
+> Ils sont donnés à titre d'illustration : à vous de les transposer.
 
 ## 1. Le problème
 
@@ -26,10 +26,10 @@ SELECT * FROM city WHERE name = 'L'Isle-Adam'
 PostgreSQL voit la chaîne `'L'`, puis `Isle-Adam'` qu'il ne sait pas lire, et refuse la
 requête.
 
-Et c'est le cas gentil. Si la valeur vient d'un formulaire un jour, quelqu'un peut y écrire
+Et c'est le cas gentil. Si la valeur vient d'un formulaire, quelqu'un peut y écrire
 `'; DROP TABLE city; --` et votre requête devient deux requêtes, dont une qui détruit la
-table. C'est ce qu'on appelle une **injection SQL**, et c'est encore aujourd'hui l'une des
-failles les plus exploitées du web.
+table. C'est ce qu'on appelle une **injection SQL**, et c'est l'une des
+failles de sécurité les plus exploitées du web.
 
 ## 2. Ce qu'est un PreparedStatement
 
@@ -59,12 +59,12 @@ et le résultat est simplement qu'aucune ville ne s'appelle comme ça.
 ```java
 String sql = "SELECT * FROM city WHERE country = ?";
 
-try (Connection connection = Database.getConnection();                  // récupère la connexion
-     PreparedStatement statement = connection.prepareStatement(sql)) {  // préparer
+try (Connection connection = Database.getConnection();                  // ouvre la connexion
+     PreparedStatement statement = connection.prepareStatement(sql)) {  // prépare la requête
 
-    statement.setString(1, "France");                                   // remplir
+    statement.setString(1, "France");                                   // remplit les trous
 
-    try (ResultSet resultSet = statement.executeQuery()) {              // exécuter
+    try (ResultSet resultSet = statement.executeQuery()) {              // exécute la requête
         while (resultSet.next()) {
             System.out.println(resultSet.getString("name"));
         }
@@ -137,5 +137,4 @@ quelques dizaines, PostgreSQL refuse les suivantes.
 
 ## 7. À vous de jouer
 
-Regardez `count()` dans `StudentDao.java` : c'est le même patron, en plus court parce qu'elle
-n'a aucun paramètre. Les quatre autres s'écrivent dessus.
+Regardez `count()` dans `StudentDao.java`, c'est votre modèle pour construire les autres requêtes.

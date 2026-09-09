@@ -14,10 +14,8 @@ import java.sql.SQLException;
  */
 public class StudentDao {
 
-    /**
-     * Combien de fiches la base porte-t-elle ?
-     *
-     * C'est la requête la plus simple du projet, et c'est pour ça qu'elle sert de
+    /***
+     * C'est la requête la plus simple du projet, elle sert de
      * premier test : si elle répond, c'est que la base tourne et est accessible depuis ce projet.
      */
     public int count() throws SQLException {

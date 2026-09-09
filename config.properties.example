@@ -8,5 +8,5 @@
 # Adaptez le nom de la base et celui du role a ce que vos scripts SQL creent.
 
 db.url=jdbc:postgresql://localhost:5432/trombifunscope
-db.user=trombi_app
-db.password=a_remplacer
+db.user=
+db.password=
