@@ -4,6 +4,7 @@ import model.DisneyCharacter;
 
 import java.sql.*;
 import java.time.LocalDate;
+import java.util.List;
 
 /**
  * Une seule méthode vous est donnée, count(). Inspirez-vous de cet exemple pour écrire
@@ -52,5 +53,22 @@ public class DisneyCharactersDao {
             statement.setDate(8, java.sql.Date.valueOf(LocalDate.now()));
             return statement.executeUpdate();
         }
+    }
+
+    public int updateCharacter(DisneyCharacter character) throws SQLException {
+        return 1;
+
+    }
+
+    public int deleteCharacter(DisneyCharacter character) throws SQLException {
+        return 1;
+    }
+
+    public List<DisneyCharacter> getAllCharacters() throws SQLException {
+        return null;
+    }
+
+    public DisneyCharacter getCharacterById(int id) throws SQLException {
+        return null;
     }
 }
