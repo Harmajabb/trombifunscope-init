@@ -61,7 +61,7 @@ public class DisneyCharactersDao {
     }
 
     public int deleteCharacter(int id) throws SQLException {
-        String sql = "DELETE FROM disney_characters WHERE id = ?;";
+        String sql = "DELETE FROM disney_characters WHERE student_id = ?;";
 
         try (Connection connection = Database.getConnection();
              PreparedStatement statement = connection.prepareStatement(sql);

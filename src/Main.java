@@ -24,5 +24,18 @@ public class Main {
         } catch (SQLException e) {
             System.out.println("La base n'a pas répondu : " + e.getMessage());
         }
+
+        int idToDelete = 4;
+        try {
+            int suppressLine = dao.deleteCharacter(idToDelete);
+
+            if (suppressLine == 0) {
+                System.out.println("This user already doesn't exist");
+            } else {
+                System.out.println("This student has been deleted, goodbye poor student");
+            }
+        } catch (SQLException e) {
+            System.out.println("La base n'a pas répondu : " + e.getMessage());
+        }
     }
 }
