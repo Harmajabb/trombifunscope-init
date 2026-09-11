@@ -82,8 +82,15 @@ public class DisneyCharactersDao {
         }
     }
 
-    public int deleteCharacter(DisneyCharacter character) throws SQLException {
-        return 1;
+    public int deleteCharacter(int id) throws SQLException {
+        String sql = "DELETE FROM disney_characters WHERE student_id = ?;";
+
+        try (Connection connection = Database.getConnection();
+             PreparedStatement statement = connection.prepareStatement(sql);
+        ) {
+            statement.setInt(1, id);
+            return statement.executeUpdate();
+        }
     }
 
     public List<DisneyCharacter> getAllCharacters() throws SQLException {
