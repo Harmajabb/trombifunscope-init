@@ -5,7 +5,7 @@
 -- • le script insère la fiche de chaque membre du groupe ou de la promo, dans l'univers choisi
 -- • je peux vider la table et rejouer le script pour retrouver exactement le même contenu
 -- • je vérifie mon chargement avec un SELECT que j'écris moi même
--- • pour exécuter: psql -U trombifunscope_admin -d disney_trombifunscope -v ON_ERROR_STOP=1 -h localhost -p 5432 -f 03-fill-table.sql
+-- • pour exécuter: psql -U trombifunscope_member -d disney_trombifunscope -v ON_ERROR_STOP=1 -h localhost -p 5432 -f 03-fill-table.sql
 -- ------------------------------------------------------------
 
 DELETE FROM disney_characters;
