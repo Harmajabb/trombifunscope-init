@@ -1,4 +1,5 @@
 import data.DisneyCharactersDao;
+import model.DisneyCharacter;
 
 import java.sql.SQLException;
 
@@ -15,9 +16,11 @@ public class Main {
     public static void main() {
         System.out.println("=== Trombifunscope ===");
 
+        DisneyCharacter characterToInsert = new DisneyCharacter("Princess", "Léa", "raiponce", "raiponce", "Moi j'ai un rêve", "Pedro", "jkldjfklsdj");
         try {
             System.out.println("Liaison établie. Test : " + dao.count()
                     + " ligne(s) dans la table student.");
+            System.out.println("Nombre de lignes insérées : " + dao.addCharacter(characterToInsert));
         } catch (SQLException e) {
             System.out.println("La base n'a pas répondu : " + e.getMessage());
         }
