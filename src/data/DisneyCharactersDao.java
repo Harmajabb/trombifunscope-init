@@ -4,6 +4,7 @@ import model.DisneyCharacter;
 
 import java.sql.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -49,7 +50,7 @@ public class DisneyCharactersDao {
             statement.setString(4, character.getDisney_movie());
             statement.setString(5, character.getIconic_quote());
             statement.setString(6, character.getCompanion());
-            statement.setString(7, character.getImage_url());
+            statement.setString(7, character.getimageUrl());
             statement.setDate(8, java.sql.Date.valueOf(LocalDate.now()));
             return statement.executeUpdate();
         }
@@ -65,7 +66,28 @@ public class DisneyCharactersDao {
     }
 
     public List<DisneyCharacter> getAllCharacters() throws SQLException {
-        return null;
+        String sql = "SELECT * FROM disney_characters";
+        List<DisneyCharacter> charactersList = new ArrayList<>();
+
+        try (Connection connection = Database.getConnection();
+             PreparedStatement statement = connection.prepareStatement(sql);
+             ResultSet resultSet = statement.executeQuery()) {
+            while (resultSet.next()) {
+                DisneyCharacter character = new DisneyCharacter(
+                        resultSet.getInt("student_id"),
+                        resultSet.getString("lastname"),
+                        resultSet.getString("firstname"),
+                        resultSet.getString("disney_character"),
+                        resultSet.getString("disney_movie"),
+                        resultSet.getString("iconic_quote"),
+                        resultSet.getString("companion"),
+                        resultSet.getString("image_url"),
+                        resultSet.getDate("creation_date").toLocalDate()
+                );
+                charactersList.add(character);
+            }
+        }
+        return charactersList;
     }
 
     public DisneyCharacter getCharacterById(int id) throws SQLException {

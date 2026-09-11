@@ -1,5 +1,7 @@
 package model;
 
+import java.time.LocalDate;
+
 /**
  * Une fiche du Trombifunscope : une personne de la promo.
  * Elle porte un prénom et un nom, et c'est tout : c'est à vous
@@ -7,14 +9,15 @@ package model;
  */
 public class DisneyCharacter {
 
-    private int id;
+    private int studentId;
     private String firstName;
     private String lastName;
     private String disney_character;
     private String disney_movie;
     private String iconic_quote;
     private String companion;
-    private String image_url;
+    private String imageUrl;
+    private LocalDate createdAt;
 
     public DisneyCharacter(String firstName,
                            String lastName,
@@ -22,7 +25,7 @@ public class DisneyCharacter {
                            String disney_movie,
                            String iconic_quote,
                            String companion,
-                           String image_url
+                           String imageUrl
     ) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -30,15 +33,37 @@ public class DisneyCharacter {
         this.disney_movie = disney_movie;
         this.iconic_quote = iconic_quote;
         this.companion = companion;
-        this.image_url = image_url;
+        this.imageUrl = imageUrl;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public DisneyCharacter(
+                            int studentId,
+                            String firstName,
+                           String lastName,
+                           String disney_character,
+                           String disney_movie,
+                           String iconic_quote,
+                           String companion,
+                           String imageUrl,
+                            LocalDate createdAt
+    ) {
+        this.studentId = studentId;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.disney_character = disney_character;
+        this.disney_movie = disney_movie;
+        this.iconic_quote = iconic_quote;
+        this.companion = companion;
+        this.imageUrl = imageUrl;
+        this.createdAt = createdAt;
     }
 
-    public int getId() {
-        return id;
+    public int getStudentId() {
+        return studentId;
+    }
+
+    public void setStudentId(int studentId) {
+        this.studentId = studentId;
     }
 
     public String getFirstName() {
@@ -65,8 +90,8 @@ public class DisneyCharacter {
         return companion;
     }
 
-    public String getImage_url() {
-        return image_url;
+    public String getimageUrl() {
+        return imageUrl;
     }
 
     public void setFirstName(String firstName) {
@@ -93,7 +118,7 @@ public class DisneyCharacter {
         this.companion = companion;
     }
 
-    public void setImage_url(String image_url) {
-        this.image_url = image_url;
+    public void setimageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 }
