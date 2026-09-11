@@ -21,6 +21,9 @@ public class Main {
             System.out.println("Liaison établie. Test : " + dao.count()
                     + " ligne(s) dans la table student.");
             System.out.println("Nombre de lignes insérées : " + dao.addCharacter(characterToInsert));
+            System.out.println("CharactersList : " + dao.getAllCharacters());
+            characterToInsert.setStudentId(3);
+            dao.updateCharacter(characterToInsert);
         } catch (SQLException e) {
             System.out.println("La base n'a pas répondu : " + e.getMessage());
         }
