@@ -55,9 +55,30 @@ public class DisneyCharactersDao {
         }
     }
 
-    public int updateCharacter(DisneyCharacter character) throws SQLException {
-        return 1;
+    public void updateCharacter(DisneyCharacter character) throws SQLException {
+        String sql = "UPDATE disney_characters SET " +
+                "lastname = ?, " +
+                "firstname = ?, " +
+                "disney_character = ?, " +
+                "disney_movie = ?, " +
+                "iconic_quote = ?, " +
+                "companion = ?, " +
+                "image_url = ? " +
+                "WHERE student_id = ? ;";
 
+        try (Connection connection = Database.getConnection();
+             PreparedStatement statement = connection.prepareStatement(sql);
+        ) {
+            statement.setString(1, character.getLastName());
+            statement.setString(2, character.getFirstName());
+            statement.setString(3, character.getDisney_character());
+            statement.setString(4, character.getDisney_movie());
+            statement.setString(5, character.getIconic_quote());
+            statement.setString(6, character.getCompanion());
+            statement.setString(7, character.getImage_url());
+            statement.setInt(8, character.getId());
+            statement.executeUpdate();
+        }
     }
 
     public int deleteCharacter(DisneyCharacter character) throws SQLException {
