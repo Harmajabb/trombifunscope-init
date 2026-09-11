@@ -1,4 +1,4 @@
-import data.StudentDao;
+import data.DisneyCharactersDao;
 
 import java.sql.SQLException;
 
@@ -10,7 +10,7 @@ import java.sql.SQLException;
  */
 public class Main {
 
-    private static final StudentDao dao = new StudentDao();
+    private static final DisneyCharactersDao dao = new DisneyCharactersDao();
 
     public static void main() {
         System.out.println("=== Trombifunscope ===");

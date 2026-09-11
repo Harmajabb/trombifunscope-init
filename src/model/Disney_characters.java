@@ -5,12 +5,12 @@ package model;
  * Elle porte un prénom et un nom, et c'est tout : c'est à vous
  * d'y mettre les colonnes que votre groupe a décidées.
  */
-public class Student {
+public class Disney_characters {
 
     private int id;
     private String firstName;
     private String lastName;
 
-    public Student() {
+    public Disney_characters() {
     }
 }

@@ -12,20 +12,20 @@ import java.sql.SQLException;
  *
  * Le fonctionnement d'un PreparedStatement est expliqué dans le README de ce dossier.
  */
-public class StudentDao {
+public class DisneyCharactersDao {
 
     /***
      * C'est la requête la plus simple du projet, elle sert de
      * premier test : si elle répond, c'est que la base tourne et est accessible depuis ce projet.
      */
     public int count() throws SQLException {
-        String sql = "SELECT count(*) as nbr_student FROM student";
+        String sql = "SELECT count(*) as nbr_disney_characters FROM disney_characters";
 
         try (Connection connection = Database.getConnection();
              PreparedStatement statement = connection.prepareStatement(sql);
              ResultSet resultSet = statement.executeQuery()) {
             resultSet.next();
-            return resultSet.getInt("nbr_student");
+            return resultSet.getInt("nbr_disney_characters");
         }
     }
 }
