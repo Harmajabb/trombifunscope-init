@@ -51,7 +51,7 @@ public class DisneyCharactersDao {
             statement.setString(5, character.getIconic_quote());
             statement.setString(6, character.getCompanion());
             statement.setString(7, character.getImageUrl());
-            statement.setDate(8, java.sql.Date.valueOf(LocalDate.now()));
+            statement.setDate(8, Date.valueOf(LocalDate.now()));
             return statement.executeUpdate();
         }
     }
@@ -118,7 +118,24 @@ public class DisneyCharactersDao {
         return charactersList;
     }
 
-    public DisneyCharacter getCharacterById(int id) throws SQLException {
-        return null;
-    }
+    public DisneyCharacter getCharacterByLastName(String lastName) throws SQLException {
+        String sql = "SELECT * from disney_characters where lastname = ?";
+        try (Connection connection = Database.getConnection();
+             PreparedStatement statement = connection.prepareStatement(sql);
+             ResultSet resultSet = statement.executeQuery()) {
+                statement.setString(1, lastName);
+                resultSet.next();
+                return new DisneyCharacter(
+                    resultSet.getInt("student_id"),
+                    resultSet.getString("lastname"),
+                    resultSet.getString("firstname"),
+                    resultSet.getString("disney_character"),
+                    resultSet.getString("disney_movie"),
+                    resultSet.getString("iconic_quote"),
+                    resultSet.getString("companion"),
+                    resultSet.getString("image_url"),
+                    resultSet.getDate("creation_date").toLocalDate()
+                );
+            }
+        }
 }

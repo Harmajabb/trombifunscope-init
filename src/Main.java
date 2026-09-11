@@ -24,6 +24,7 @@ public class Main {
             System.out.println("CharactersList : " + dao.getAllCharacters());
             characterToInsert.setStudentId(3);
             dao.updateCharacter(characterToInsert);
+            System.out.println("character by name : " + dao.getCharacterByLastName("Cabon"));
         } catch (SQLException e) {
             System.out.println("La base n'a pas répondu : " + e.getMessage());
         }
