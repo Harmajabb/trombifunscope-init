@@ -50,7 +50,7 @@ public class DisneyCharactersDao {
             statement.setString(4, character.getDisney_movie());
             statement.setString(5, character.getIconic_quote());
             statement.setString(6, character.getCompanion());
-            statement.setString(7, character.getimageUrl());
+            statement.setString(7, character.getImageUrl());
             statement.setDate(8, java.sql.Date.valueOf(LocalDate.now()));
             return statement.executeUpdate();
         }
@@ -76,8 +76,8 @@ public class DisneyCharactersDao {
             statement.setString(4, character.getDisney_movie());
             statement.setString(5, character.getIconic_quote());
             statement.setString(6, character.getCompanion());
-            statement.setString(7, character.getImage_url());
-            statement.setInt(8, character.getId());
+            statement.setString(7, character.getImageUrl());
+            statement.setInt(8, character.getStudentId());
             statement.executeUpdate();
         }
     }

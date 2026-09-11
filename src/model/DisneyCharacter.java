@@ -90,7 +90,7 @@ public class DisneyCharacter {
         return companion;
     }
 
-    public String getimageUrl() {
+    public String getImageUrl() {
         return imageUrl;
     }
 
