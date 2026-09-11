@@ -9,6 +9,8 @@
 -- Opération de structure => administrateur
 -- ------------------------------------------------------------
 
+DROP TABLE IF EXISTS disney_characters CASCADE;
+
 CREATE TABLE disney_characters(
    student_id int GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
    lastname VARCHAR(30) NOT NULL,

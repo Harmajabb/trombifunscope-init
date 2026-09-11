@@ -9,12 +9,14 @@
 -- À exécuter avec : psql -U postgres -d postgres -v ON_ERROR_STOP=1 -h localhost -p 5432 -f 01-structure-and-ownership.sql
 -- ------------------------------------------------------------
 
-DROP TABLE IF EXISTS disney_characters CASCADE; --possible bug
+DROP DATABASE IF EXISTS disney_trombifunscope;
 CREATE DATABASE disney_trombifunscope;
 
+DROP ROLE IF EXISTS trombifunscope_admin;
 CREATE ROLE trombifunscope_admin LOGIN PASSWORD 'ILoveDisney'; 
 
-CREATE ROLE trombifunscope_member LOGIN PASSWORD 'MeTooILoveDisney';
+DROP ROLE IF EXISTS trombifunscope_member;
+CREATE ROLE trombifunscope_member LOGIN PASSWORD 'ILoveDisneyToo';
 
 ALTER DATABASE disney_trombifunscope OWNER TO trombifunscope_admin;
 
