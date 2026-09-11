@@ -18,7 +18,7 @@ CREATE TABLE disney_characters(
    disney_character VARCHAR(50) NOT NULL,
    disney_movie VARCHAR(50) NOT NULL,
    iconic_quote VARCHAR(50),
-   compagnon VARCHAR(30),
+   companion VARCHAR(30),
    image_url TEXT NOT NULL,
    creation_date TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP
 );

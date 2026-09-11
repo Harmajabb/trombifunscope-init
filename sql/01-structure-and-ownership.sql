@@ -13,10 +13,10 @@ DROP DATABASE IF EXISTS disney_trombifunscope;
 CREATE DATABASE disney_trombifunscope;
 
 DROP ROLE IF EXISTS trombifunscope_admin;
-CREATE ROLE trombifunscope_admin LOGIN PASSWORD 'ILoveDisney'; 
+CREATE ROLE trombifunscope_admin LOGIN PASSWORD 'admin';
 
 DROP ROLE IF EXISTS trombifunscope_member;
-CREATE ROLE trombifunscope_member LOGIN PASSWORD 'ILoveDisneyToo';
+CREATE ROLE trombifunscope_member LOGIN PASSWORD 'member';
 
 ALTER DATABASE disney_trombifunscope OWNER TO trombifunscope_admin;
 
